@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thapelo Mohaleamalla | Data Analyst Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e', // Custom darker slate
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Fade Animation for Spotlight */
+        .fade-enter {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .fade-enter-active {
+            opacity: 1;
+        }
+        .fade-exit {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .fade-exit-active {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:bg-blue-500 selection:text-white font-sans antialiased">
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-tight flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                </div>
+                <span class="text-slate-100">Thapelo<span class="text-blue-600">.io</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-slate-400 hover:text-blue-600 font-medium text-sm transition-colors">About</a>
+                <a href="#skills" class="text-slate-400 hover:text-blue-600 font-medium text-sm transition-colors">Skills</a>
+                <a href="#projects" class="text-slate-400 hover:text-blue-600 font-medium text-sm transition-colors">Projects</a>
+                <a href="#experience" class="text-slate-400 hover:text-blue-600 font-medium text-sm transition-colors">Experience</a>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium text-sm transition-colors">Contact Me</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-slate-100" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-slate-900 shadow-lg py-4 px-6 border-t border-slate-800 flex-col gap-4">
+            <a href="#about" class="block py-2 border-b border-slate-800 text-slate-400 font-medium">About</a>
+            <a href="#skills" class="block py-2 border-b border-slate-800 text-slate-400 font-medium">Skills</a>
+            <a href="#projects" class="block py-2 border-b border-slate-800 text-slate-400 font-medium">Projects</a>
+            <a href="#experience" class="block py-2 border-b border-slate-800 text-slate-400 font-medium">Experience</a>
+            <a href="#contact" class="block py-2 text-slate-400 font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="about" class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/20 to-transparent -z-10"></div>
+        
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left Text Content -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 text-blue-300 text-sm font-semibold mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Open to Opportunities
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-slate-100">
+                    Transforming Data into <span class="text-blue-600">Strategic Insights</span>.
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-lg">
+                    Hi, I'm Thapelo Mohaleamalla. A Google Certified Data Analyst & Business Analyst skilled in Tableau, Power BI, Python, R and SQL. 
+                    I specialize in data storytelling and building interactive dashboards that drive decision-making.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105">
+                        View Case Studies <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                    <button class="flex items-center gap-2 px-6 py-3 rounded-lg font-semibold border border-slate-800 hover:border-slate-500 bg-slate-900 transition-colors text-slate-200">
+                        Download CV <i data-lucide="download" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Project Spotlight -->
+            <div class="relative">
+                <div class="bg-slate-900 p-8 rounded-2xl shadow-xl border border-slate-800 relative z-10 transform md:rotate-2 hover:rotate-0 transition-transform duration-500 min-h-[300px] flex flex-col justify-center">
+                    
+                    <!-- Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide bg-slate-800 text-slate-300">
+                            Project Spotlight
+                        </span>
+                        <!-- Dots Indicator -->
+                        <div id="spotlight-dots" class="flex gap-1.5">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Spotlight Content (Container for Fade) -->
+                    <div id="spotlight-content" class="transition-opacity duration-500 opacity-100">
+                        <h3 id="spotlight-title" class="text-2xl font-bold text-slate-100 mb-3">Loading...</h3>
+                        
+                        <div id="spotlight-tags" class="flex flex-wrap gap-2 mb-4">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <p id="spotlight-desc" class="text-slate-400 text-sm mb-6 leading-relaxed line-clamp-3">
+                            Loading description...
+                        </p>
+
+                        <div class="p-4 rounded-lg border border-slate-800 bg-slate-950/50 flex items-center gap-3">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-green-500"></i>
+                            <div>
+                                <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Impact</div>
+                                <div id="spotlight-metric" class="text-sm font-bold text-slate-100">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decoration -->
+                <div class="absolute -bottom-6 -right-6 w-full h-full bg-slate-800/50 rounded-2xl -z-10"></div>
+            </div>
+        </div>
+
+        <!-- KPI Strip -->
+        <div class="max-w-6xl mx-auto mt-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-slate-800 py-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-slate-100 mb-1">3</div>
+                    <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Certifications</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-slate-100 mb-1">6+</div>
+                    <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Projects Completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-slate-100 mb-1">1</div>
+                    <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Hackathons</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-slate-100 mb-1">2026</div>
+                    <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Graduation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 px-6 bg-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-100 mb-4">Technical Expertise</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    My toolkit focuses on transforming raw data into actionable insights, 
+                    utilizing industry-standard tools for visualization, coding, and analysis.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category 1: Languages -->
+                <div class="p-6 bg-slate-950 border-slate-800 rounded-xl border hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-100">Languages & Code</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Python</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Pandas</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">R</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Statistics</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Java</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Core</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">SQL</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Querying</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 2: Soft Skills -->
+                <div class="p-6 bg-slate-950 border-slate-800 rounded-xl border hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-600 mb-6">
+                        <i data-lucide="brain" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-100">Analysis & Soft Skills</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Data Storytelling</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Reporting</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Req. Gathering</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Documentation</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Agile</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Scrum</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3: Visualization -->
+                <div class="p-6 bg-slate-950 border-slate-800 rounded-xl border hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal-900/30 rounded-lg flex items-center justify-center text-teal-600 mb-6">
+                        <i data-lucide="pie-chart" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-100">BI & Visualization</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Tableau</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">Dashboards</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Power BI</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">KPIs</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-medium text-slate-300">Data Cleaning</span>
+                            <span class="text-xs bg-slate-900 border border-slate-800 px-2 py-1 rounded text-slate-400">ETL</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 px-6 bg-slate-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-100 mb-2">Featured Projects</h2>
+                    <p class="text-slate-400">Case studies highlighting impact, methodology, and leadership.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex gap-2 bg-slate-900 p-1 rounded-lg border border-slate-800 shadow-sm overflow-x-auto" id="filter-container">
+                    <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap bg-blue-600 text-white shadow-md" data-filter="All">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap text-slate-400 hover:bg-slate-800" data-filter="Visualization">Visualization</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap text-slate-400 hover:bg-slate-800" data-filter="Leadership">Leadership</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-sm font-medium transition-all whitespace-nowrap text-slate-400 hover:bg-slate-800" data-filter="Analysis">Analysis</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+                <!-- Projects injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-20 px-6 bg-slate-900">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-slate-100 mb-12 text-center">Experience & Education</h2>
+            
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 border-slate-800 bg-slate-800"></div>
+
+                <div class="space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative pl-24">
+                        <div class="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-900 shadow-sm z-10"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-slate-100">Deputy Secretary</h3>
+                            <span class="text-sm font-semibold text-blue-500 bg-blue-900/30 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Jan 2025 - Present</span>
+                        </div>
+                        <div class="text-lg font-medium text-slate-300 mb-2">Hacker Society</div>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">
+                            Managing administrative tasks and tracking action items. Increased event attendance by 10% through data-driven engagement campaigns.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-24">
+                        <div class="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-900 shadow-sm z-10"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-slate-100">Google Data Analytics Professional</h3>
+                            <span class="text-sm font-semibold text-blue-500 bg-blue-900/30 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Dec 2025</span>
+                        </div>
+                        <div class="text-lg font-medium text-slate-300 mb-2">Coursera</div>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">
+                            Mastered the data analysis lifecycle (Ask, Prepare, Process, Analyze, Share, Act). Gained proficiency in R (Ggplot2), SQL, and Tableau.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-24">
+                        <div class="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-900 shadow-sm z-10"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-slate-100">Tableau Student</h3>
+                            <span class="text-sm font-semibold text-blue-500 bg-blue-900/30 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">2025</span>
+                        </div>
+                        <div class="text-lg font-medium text-slate-300 mb-2">Skill Up</div>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">
+                            Built interactive dashboards and learned to transform complex datasets into actionable insights.
+                        </p>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="relative pl-24">
+                        <div class="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-900 shadow-sm z-10"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-slate-100">Data Fundamentals</h3>
+                            <span class="text-sm font-semibold text-blue-500 bg-blue-900/30 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">May 2024</span>
+                        </div>
+                        <div class="text-lg font-medium text-slate-300 mb-2">IBM</div>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">
+                            Gained foundational knowledge in data analytics, visualization, and data-driven decision making.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 px-6 bg-slate-950 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-teal-500 rounded-full blur-[100px] opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-6">Let's solve your data problems.</h2>
+            <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+                I'm currently open to full-time opportunities. 
+                If you need a dashboard built or a dataset analyzed, let's talk.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="mailto:thapelomohal002@gmail.com" class="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    thapelomohal002@gmail.com
+                </a>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/thapelo-mohaleamalla" target="_blank" rel="noreferrer" class="p-4 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-sm border-t border-slate-900">
+        <p>&copy; 2026 Thapelo Mohaleamalla. Built with HTML & Tailwind.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA ---
+        const projects = [
+            {
+                id: 1,
+                title: 'Retail Sales Dashboard',
+                category: 'Visualization',
+                tags: ['Tableau', 'Data Cleaning', 'KPIs'],
+                description: 'Conducted end-to-end analysis of retail sales data. Cleaned and transformed data to identify top 10 customers and seasonality trends.',
+                metric: 'Strategic Insights Generated',
+                color: 'bg-orange-500',
+                link: 'https://public.tableau.com/app/profile/thapelo.mohaleamalla/viz/RetailSales_17630346773280/Dashboard1'
+            },
+            {
+                id: 2,
+                title: 'TVH Hackathon Web App',
+                category: 'Leadership',
+                tags: ['Agile', 'Project Mgmt', 'Team Lead'],
+                description: 'Led a team to develop a web app for township entrepreneurs. Managed scope, sprints, and ensured timely delivery of the MVP to judges.',
+                metric: 'MVP Delivered on Time',
+                color: 'bg-blue-600',
+                link: 'https://patheon.netlify.app/'
+            },
+            {
+                id: 3,
+                title: 'HR Analytics Dashboard',
+                category: 'Visualization',
+                tags: ['Power BI', 'HR Metrics', 'Analytics'],
+                description: 'Designed interactive dashboards to track attrition, satisfaction, and workforce demographics, enabling stakeholders to identify trends quickly.',
+                metric: 'Workforce Trends Identified',
+                color: 'bg-purple-500',
+                link: 'https://public.tableau.com/app/profile/thapelo.mohaleamalla/viz/HRdashboard_17574186387630/HRAnalyticsDashboard'
+            },
+            {
+                id: 4,
+                title: 'Bellabeat Case Study',
+                category: 'Analysis',
+                tags: ['R', 'Spreadsheets', 'Strategy'],
+                description: 'Analyzed smart device usage data to identify growth opportunities. Revealed key trends in activity patterns and sleep efficiency to inform a fashion-first retention strategy.',
+                metric: '3-Pillar Strategy Proposed',
+                color: 'bg-rose-500',
+                link: 'https://github.com/MohalTheProgramer/Case-Study-Unlocking-Growth-Opportunities-for-Bellabeat'
+            },
+        ];
+
+        // --- SPOTLIGHT ROTATION ---
+        let spotlightIndex = 0;
+        
+        function updateSpotlight() {
+            const project = projects[spotlightIndex];
+            const content = document.getElementById('spotlight-content');
+            
+            // Fade Out
+            content.style.opacity = '0';
+
+            setTimeout(() => {
+                // Update Content
+                document.getElementById('spotlight-title').innerText = project.title;
+                document.getElementById('spotlight-desc').innerText = project.description;
+                document.getElementById('spotlight-metric').innerText = project.metric;
+                
+                // Update Tags
+                const tagsContainer = document.getElementById('spotlight-tags');
+                tagsContainer.innerHTML = project.tags.slice(0, 2).map(tag => 
+                    `<span class="text-xs text-slate-400 border border-slate-800 px-2 py-0.5 rounded">${tag}</span>`
+                ).join('');
+
+                // Update Dots
+                const dotsContainer = document.getElementById('spotlight-dots');
+                dotsContainer.innerHTML = projects.map((_, idx) => 
+                    `<div class="w-2 h-2 rounded-full transition-colors duration-300 ${idx === spotlightIndex ? 'bg-blue-600' : 'bg-slate-700'}"></div>`
+                ).join('');
+
+                // Fade In
+                content.style.opacity = '1';
+                
+                // Increment Index
+                spotlightIndex = (spotlightIndex + 1) % projects.length;
+            }, 500);
+        }
+
+        // Initialize Spotlight
+        updateSpotlight();
+        setInterval(updateSpotlight, 5000);
+
+        // --- NAVBAR SCROLL ---
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-950/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.remove('bg-slate-950/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                navbar.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // --- MOBILE MENU ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            // Toggle Icon (X / Menu) logic could be added here
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // --- PROJECTS FILTERING ---
+        function renderProjects(filter = 'All') {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = ''; // Clear existing
+
+            const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+
+            filtered.forEach(p => {
+                const card = `
+                <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-800 hover:shadow-xl transition-shadow group flex flex-col">
+                    <div class="h-2 w-full ${p.color}"></div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="inline-block px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-bold uppercase tracking-wide">
+                                ${p.category}
+                            </div>
+                            <a href="${p.link}" target="_blank" rel="noopener noreferrer">
+                                <i data-lucide="external-link" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors cursor-pointer"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-100 mb-3">${p.title}</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed">${p.description}</p>
+                        <div class="mt-auto">
+                            <div class="bg-slate-950 border-slate-800 p-4 rounded-lg border mb-6 flex items-center gap-3">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-green-600"></i>
+                                <div>
+                                    <span class="block text-xs text-slate-500 font-semibold uppercase">Key Result</span>
+                                    <span class="font-bold text-slate-100">${p.metric}</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                ${p.tags.map(t => `<span class="text-xs text-slate-400 bg-slate-900 border border-slate-800 px-2 py-1 rounded shadow-sm">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                grid.innerHTML += card;
+            });
+            
+            // Re-initialize icons for new DOM elements
+            lucide.createIcons();
+        }
+
+        // Filter Buttons Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update Button Styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                    b.classList.add('text-slate-400', 'hover:bg-slate-800');
+                });
+                e.target.classList.remove('text-slate-400', 'hover:bg-slate-800');
+                e.target.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+
+                // Render Projects
+                renderProjects(e.target.dataset.filter);
+            });
+        });
+
+        // Initial Render
+        renderProjects();
+        
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+    </script>
+</body>
+</html>
